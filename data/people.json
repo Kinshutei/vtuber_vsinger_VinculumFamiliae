@@ -1,0 +1,19 @@
+{
+  "talents": [
+    {
+      "id": "t_mnnjxlzi",
+      "name": "深影",
+      "mama_id": "c_mnnjwec5",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    }
+  ],
+  "creators": [
+    {
+      "id": "c_mnnjwec5",
+      "name": "がわこ",
+      "type": "mama"
+    }
+  ]
+}
