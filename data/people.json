@@ -20,9 +20,18 @@
     {
       "id": "t_mnnksgva",
       "name": "HACHI",
-      "office_id": null,
-      "mama_id": null,
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnnkss3i",
       "papa_id": null,
+      "modeler_3d_id": "c_mnnksy2v",
+      "costumes": []
+    },
+    {
+      "id": "t_mnnl0hhx",
+      "name": "瀬戸乃とと",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnnkzzlo",
+      "papa_id": "c_mnnl1kx7",
       "modeler_3d_id": null,
       "costumes": []
     }
@@ -67,6 +76,16 @@
       "id": "c_mnnksy2v",
       "name": "八剣",
       "type": "modeler_3d"
+    },
+    {
+      "id": "c_mnnkzzlo",
+      "name": "生川",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnl1kx7",
+      "name": "魔宮ベル",
+      "type": "papa"
     }
   ],
   "offices": [
