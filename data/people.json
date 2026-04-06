@@ -34,6 +34,15 @@
       "papa_id": "c_mnnl1kx7",
       "modeler_3d_id": null,
       "costumes": []
+    },
+    {
+      "id": "t_mnnlbdt9",
+      "name": "水瀬 凪",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnnl8wal",
+      "papa_id": "c_mnnl96en",
+      "modeler_3d_id": null,
+      "costumes": []
     }
   ],
   "creators": [
@@ -85,6 +94,16 @@
     {
       "id": "c_mnnl1kx7",
       "name": "魔宮ベル",
+      "type": "papa"
+    },
+    {
+      "id": "c_mnnl8wal",
+      "name": "美和野らぐ",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnl96en",
+      "name": "ぽんぷ長🍅",
       "type": "papa"
     }
   ],
