@@ -7,6 +7,24 @@
       "papa_id": null,
       "modeler_3d_id": null,
       "costumes": []
+    },
+    {
+      "id": "t_mnnkr6ma",
+      "name": "焔魔るり",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnnkk09i",
+      "papa_id": "c_mnnkq3z1",
+      "modeler_3d_id": "c_mnnklpmz",
+      "costumes": []
+    },
+    {
+      "id": "t_mnnksgva",
+      "name": "HACHI",
+      "office_id": null,
+      "mama_id": null,
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
     }
   ],
   "creators": [
@@ -14,6 +32,41 @@
       "id": "c_mnnjwec5",
       "name": "がわこ",
       "type": "mama"
+    },
+    {
+      "id": "c_mnnkew39",
+      "name": "ろるあ",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnkk09i",
+      "name": "鴇衣和禽",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnklpmz",
+      "name": "KT。",
+      "type": "modeler_3d"
+    },
+    {
+      "id": "c_mnnkndkt",
+      "name": "zouzu",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnkq3z1",
+      "name": "blessed",
+      "type": "papa"
+    },
+    {
+      "id": "c_mnnkss3i",
+      "name": "泉彩",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnksy2v",
+      "name": "八剣",
+      "type": "modeler_3d"
     }
   ],
   "offices": [
