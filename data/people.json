@@ -61,6 +61,24 @@
       "papa_id": null,
       "modeler_3d_id": null,
       "costumes": []
+    },
+    {
+      "id": "t_mnof7k6m",
+      "name": "妃玖",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnof5wat",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnof8ci6",
+      "name": "Diα",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnof644x",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
     }
   ],
   "creators": [
