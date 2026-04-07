@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VinculumFamiliae</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #f4f2ee;
+      --circle-idle: #ddd9d0;
+      --accent:      #9b72d8;
+      --accent2:     #c4a0ff;
+      --text:        #ede8f5;
+      --text-dark:   #2c2c2c;
+      --text-dim:    #9a95b0;
+      --border:      rgba(155,114,216,0.4);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', 'Noto Sans JP', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* ── ステージ ── */
+    #stage {
+      position: relative;
+      width: 560px;
+      height: 560px;
+    }
+
+    /* ── 共通サークル ── */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      user-select: none;
+    }
+
+    /* ── 中心サークル（待機状態） ── */
+    #center {
+      width: 150px;
+      height: 150px;
+      top:  50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--circle-idle);
+      border: 2px solid #b8b4aa;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      z-index: 10;
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    /* タレント選択後 */
+    #center.talent-active {
+      background: var(--talent-bg, rgba(155,114,216,0.5));
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    }
+
+    /* ── 外周サークル ── */
+    .c-outer {
+      width: 90px;
+      height: 90px;
+      background: var(--circle-idle);
+      border: 1.5px solid #b8b4aa;
+      z-index: 5;
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    }
+    .c-outer.talent-active {
+      background: var(--talent-bg, rgba(155,114,216,0.5));
+      border: 1.5px solid var(--accent);
+    }
+    .c-outer.clickable {
+      cursor: pointer;
+    }
+    .c-outer.clickable:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 18px rgba(0,0,0,0.15);
+      transform: scale(1.08);
+    }
+    .c-outer.empty {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    /* ── テキスト ── */
+    .c-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.35;
+      padding: 0 8px;
+      word-break: break-all;
+    }
+    #center.talent-active .c-name,
+    .c-outer.talent-active .c-name { color: var(--text); }
+    #center .c-name { font-size: 13px; }
+    .c-role {
+      font-size: 10px;
+      color: #666;
+      margin-top: 4px;
+    }
+    #center.talent-active .c-role,
+    .c-outer.talent-active .c-role { color: rgba(255,255,255,0.75); }
+
+    /* ── 検索 ── */
+    .search-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+      padding: 0 18px;
+    }
+    .search-hint { font-size: 10px; color: #888; }
+    .search-wrap input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #aaa;
+      color: var(--text-dark);
+      font-size: 13px;
+      text-align: center;
+      outline: none;
+      padding: 4px 0;
+      font-family: inherit;
+    }
+    .search-wrap input::placeholder { color: #aaa; }
+
+    /* ── 検索ドロップダウン ── */
+    #searchDropdown {
+      position: absolute;
+      top: calc(50% + 80px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      min-width: 180px;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 50;
+      display: none;
+    }
+    #searchDropdown.open { display: block; }
+    .sd-item {
+      padding: 8px 14px;
+      font-size: 13px;
+      color: #1a1a1a;
+      cursor: pointer;
+      border-bottom: 1px solid #e0ddd8;
+    }
+    .sd-item:last-child { border-bottom: none; }
+    .sd-item:hover { background: #e8e4f0; color: #260d4c; }
+    .sd-type { font-size: 10px; color: #888; margin-left: 6px; }
+
+    /* ── 接続線 ── */
+    .conn-line {
+      position: absolute;
+      height: 1px;
+      background: var(--border);
+      transform-origin: left center;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── ホームボタン ── */
+    #homeBtn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 6px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text-dim);
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s;
+      opacity: 0;
+      pointer-events: none;
+    }
+    #homeBtn:hover { border-color: var(--accent); color: var(--text); }
+    #homeBtn.visible { opacity: 1; pointer-events: auto; }
+
+    /* ── ロード中 ── */
+    #loadMsg {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--text-dim);
+      background: var(--bg);
+      z-index: 100;
+    }
+    /* ── ライトボックス ── */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 300;
+      cursor: pointer;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 60px rgba(155,114,216,0.4);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="loadMsg">読み込み中...</div>
+<button id="homeBtn" onclick="goHome()">← 検索に戻る</button>
+<div id="lightbox" onclick="closeLightbox()"></div>
+
+<div id="stage">
+  <div id="center" class="circle"></div>
+  <div id="searchDropdown"></div>
+</div>
+
+<script>
+// ── 定数 ────────────────────────────────────────────────────────────────────
+const CX = 280, CY = 280
+const ORBIT_R   = 190
+const CENTER_R  = 75   // 中心円の半径
+const OUTER_R   = 45   // 外周円の半径
+
+// 8ポジション（度、0=上から時計回り）
+const ANGLES = [0, 45, 90, 135, 180, 225, 270, 315]
+
+// ── 状態 ────────────────────────────────────────────────────────────────────
+let db = { talents: [], creators: [], offices: [] }
+let outerEls = []
+let openImageOnSelect = false
+
+// ── 初期化 ──────────────────────────────────────────────────────────────────
+async function init() {
+  try {
+    const res = await fetch('data/people.json')
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    db = await res.json()
+    if (!db.talents)  db.talents  = []
+    if (!db.creators) db.creators = []
+    if (!db.offices)  db.offices  = []
+  } catch(e) {
+    console.error('データ読み込みエラー', e)
+  }
+  document.getElementById('loadMsg').style.display = 'none'
+  renderSearch()
+}
+
+// ── ユーティリティ ──────────────────────────────────────────────────────────
+const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
+
+function posAt(angleIdx) {
+  const rad = (ANGLES[angleIdx] - 90) * Math.PI / 180
+  return {
+    x: CX + ORBIT_R * Math.cos(rad),
+    y: CY + ORBIT_R * Math.sin(rad),
+  }
+}
+
+// ── 外周クリア ──────────────────────────────────────────────────────────────
+function clearOuter() {
+  outerEls.forEach(el => el.remove())
+  outerEls = []
+}
+
+// ── 接続線 ──────────────────────────────────────────────────────────────────
+function makeConnLine(px, py) {
+  const dx = px - CX, dy = py - CY
+  const dist = Math.sqrt(dx*dx + dy*dy)
+  const angle = Math.atan2(dy, dx) * 180 / Math.PI
+  const lineLen = dist - CENTER_R - OUTER_R - 4
+  if (lineLen <= 0) return null
+  const startX = CX + CENTER_R * Math.cos(angle * Math.PI / 180)
+  const startY = CY + CENTER_R * Math.sin(angle * Math.PI / 180)
+  const el = document.createElement('div')
+  el.className = 'conn-line'
+  el.style.width  = lineLen + 'px'
+  el.style.left   = startX + 'px'
+  el.style.top    = startY + 'px'
+  el.style.transform = `rotate(${angle}deg)`
+  return el
+}
+
+// ── 外周サークル作成 ─────────────────────────────────────────────────────────
+function makeOuter(angleIdx, name, roleLabel, onClick, colored = false) {
+  const { x, y } = posAt(angleIdx)
+  const stage = document.getElementById('stage')
+
+  // 接続線
+  const line = makeConnLine(x, y)
+  if (line) { stage.appendChild(line); outerEls.push(line) }
+
+  // サークル
+  const el = document.createElement('div')
+  el.className = 'circle c-outer' + (onClick ? ' clickable' : ' empty') + (colored ? ' talent-active' : '')
+  el.style.left = (x - OUTER_R) + 'px'
+  el.style.top  = (y - OUTER_R) + 'px'
+  el.innerHTML = `
+    <span class="c-name">${esc(name)}</span>
+    ${roleLabel ? `<span class="c-role">${esc(roleLabel)}</span>` : ''}
+  `
+  if (onClick) el.onclick = onClick
+  stage.appendChild(el)
+  outerEls.push(el)
+  return el
+}
+
+// ── 検索画面 ─────────────────────────────────────────────────────────────────
+function renderSearch() {
+  clearOuter()
+  document.getElementById('homeBtn').classList.remove('visible')
+  document.getElementById('center').innerHTML = `
+    <div class="search-wrap">
+      <span class="search-hint">名前で検索</span>
+      <input type="text" id="searchInput" placeholder="例: 深影" autocomplete="off">
+    </div>
+  `
+  const input = document.getElementById('searchInput')
+  input.addEventListener('input', onSearchInput)
+  input.addEventListener('focus', onSearchInput)
+  input.addEventListener('blur', () =>
+    setTimeout(() => document.getElementById('searchDropdown').classList.remove('open'), 150)
+  )
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const first = document.querySelector('#searchDropdown .sd-item')
+      if (first) {
+        e.preventDefault()
+        openImageOnSelect = true
+        first.dispatchEvent(new MouseEvent('mousedown'))
+      }
+    }
+  })
+  input.focus()
+}
+
+function onSearchInput() {
+  const q = (document.getElementById('searchInput')?.value || '').toLowerCase().trim()
+  const dd = document.getElementById('searchDropdown')
+  const results = [
+    ...db.talents.map(t => ({ ...t, _kind: 'talent' })),
+    ...db.creators.map(c => ({ ...c, _kind: 'creator' })),
+  ].filter(x => !q || x.name.toLowerCase().includes(q)).slice(0, 12)
+
+  if (!results.length) { dd.classList.remove('open'); return }
+  dd.innerHTML = results.map(r =>
+    `<div class="sd-item" data-id="${esc(r.id)}" data-kind="${r._kind}">
+      ${esc(r.name)}<span class="sd-type">${r._kind === 'talent' ? 'タレント' : 'クリエイター'}</span>
+    </div>`
+  ).join('')
+  dd.classList.add('open')
+  dd.querySelectorAll('.sd-item').forEach(el => {
+    el.addEventListener('mousedown', e => {
+      e.preventDefault()
+      el.dataset.kind === 'talent' ? showTalent(el.dataset.id) : showCreator(el.dataset.id)
+    })
+  })
+}
+
+function goHome() {
+  applyAccent('#9b72d8')
+  document.getElementById('center').classList.remove('talent-active')
+  renderSearch()
+}
+
+function applyAccent(color) {
+  const r = parseInt(color.slice(1,3),16)
+  const g = parseInt(color.slice(3,5),16)
+  const b = parseInt(color.slice(5,7),16)
+  document.documentElement.style.setProperty('--accent',     color)
+  document.documentElement.style.setProperty('--accent2',    color)
+  document.documentElement.style.setProperty('--border',     `rgba(${r},${g},${b},0.5)`)
+  document.documentElement.style.setProperty('--talent-bg',  `rgba(${r},${g},${b},0.5)`)
+}
+
+// ── ライトボックス ────────────────────────────────────────────────────────────
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox')
+  lb.innerHTML = `<img src="${esc(src)}" alt="キービジュアル">`
+  lb.classList.add('open')
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open')
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox()
+})
+
+// ── タレント表示 ─────────────────────────────────────────────────────────────
+function showTalent(id) {
+  const t = db.talents.find(x => x.id === id)
+  if (!t) return
+  clearOuter()
+  document.getElementById('homeBtn').classList.add('visible')
+  if (openImageOnSelect) {
+    openImageOnSelect = false
+    if (t.image) openLightbox(t.image)
+  }
+
+  const office = db.offices.find(o => o.id === t.office_id)
+  const color  = office?.color || '#9b72d8'
+  applyAccent(color)
+  const centerEl = document.getElementById('center')
+  centerEl.classList.add('talent-active')
+  centerEl.innerHTML = `
+    <span class="c-name">${esc(t.name)}</span>
+    ${office ? `<span class="c-role">${esc(office.name)}</span>` : ''}
+  `
+
+  // パパ（左・270° = index 6）
+  const papa = db.creators.find(c => c.id === t.papa_id)
+  makeOuter(6, papa ? papa.name : '—', 'パパ', papa ? () => showCreator(papa.id) : null)
+
+  // ママ（右・90° = index 2）
+  const mama = db.creators.find(c => c.id === t.mama_id)
+  makeOuter(2, mama ? mama.name : '—', 'ママ', mama ? () => showCreator(mama.id) : null)
+}
+
+// ── クリエイター表示 ──────────────────────────────────────────────────────────
+function showCreator(id) {
+  const c = db.creators.find(x => x.id === id)
+  if (!c) return
+  clearOuter()
+  document.getElementById('homeBtn').classList.add('visible')
+
+  const roles = []
+  if (db.talents.some(t => t.mama_id === id)) roles.push('ママ')
+  if (db.talents.some(t => t.papa_id === id)) roles.push('パパ')
+  if (db.talents.some(t => (t.costumes||[]).some(cs => cs.designer_id === id))) roles.push('衣装')
+  if (db.talents.some(t => t.modeler_3d_id === id)) roles.push('3D')
+
+  document.getElementById('center').innerHTML = `
+    <span class="c-name">${esc(c.name)}</span>
+    ${roles.length ? `<span class="c-role">${roles.join(' / ')}</span>` : ''}
+  `
+
+  // 担当タレント
+  const children = db.talents.filter(t =>
+    t.mama_id === id || t.papa_id === id ||
+    t.modeler_3d_id === id || (t.costumes||[]).some(cs => cs.designer_id === id)
+  )
+  children.slice(0, 8).forEach((t, i) => {
+    const childOffice = db.offices.find(o => o.id === t.office_id)
+    const childColor  = childOffice?.color || '#9b72d8'
+    const cr = parseInt(childColor.slice(1,3),16)
+    const cg = parseInt(childColor.slice(3,5),16)
+    const cb = parseInt(childColor.slice(5,7),16)
+    const el = makeOuter(i, t.name, '子', () => showTalent(t.id), false)
+    if (el) {
+      el.style.background   = `rgba(${cr},${cg},${cb},0.5)`
+      el.style.borderColor  = childColor
+      el.style.color        = '#fff'
+      el.querySelectorAll('.c-name,.c-role').forEach(s => s.style.color = '#fff')
+    }
+  })
+}
+
+init()
+</script>
+</body>
+</html>

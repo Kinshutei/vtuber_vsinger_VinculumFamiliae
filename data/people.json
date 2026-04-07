@@ -1,0 +1,356 @@
+{
+  "talents": [
+    {
+      "id": "t_mnnjxlzi",
+      "name": "深影",
+      "mama_id": "c_mnnjwec5",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": [],
+      "office_id": "o_mnnk69en",
+      "image": "https://yt3.googleusercontent.com/LvotNjL324E5IwSzX--M4g-2IBSxFWvMyIAO3XF8Ynp7bBrlnz3prGP32CsWk0RODYjxffdTiQ=s800-c-k-c0x00ffffff-no-rj"
+    },
+    {
+      "id": "t_mnnkr6ma",
+      "name": "焔魔るり",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnnkk09i",
+      "papa_id": "c_mnnkq3z1",
+      "modeler_3d_id": "c_mnnklpmz",
+      "costumes": []
+    },
+    {
+      "id": "t_mnnksgva",
+      "name": "HACHI",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnnkss3i",
+      "papa_id": null,
+      "modeler_3d_id": "c_mnnksy2v",
+      "costumes": []
+    },
+    {
+      "id": "t_mnnl0hhx",
+      "name": "瀬戸乃とと",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnnkzzlo",
+      "papa_id": "c_mnnl1kx7",
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnnlbdt9",
+      "name": "水瀬 凪",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnnl8wal",
+      "papa_id": "c_mnnl96en",
+      "modeler_3d_id": "c_mnnl96en",
+      "costumes": []
+    },
+    {
+      "id": "t_mnoeby8a",
+      "name": "LEWNE",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnoec2j3",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnoevtov",
+      "name": "羽緒",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnoecnyi",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnof7k6m",
+      "name": "妃玖",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnof5wat",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnof8ci6",
+      "name": "Diα",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnof644x",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnofo2qg",
+      "name": "NEUN",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnoeym2o",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnofoees",
+      "name": "CULUA",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnoez8u4",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnofoom8",
+      "name": "MEDA",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnoezhgx",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnofq9tv",
+      "name": "MEMESIA",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnofpyyg",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnofqob1",
+      "name": "Cil",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnofpqga",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnog2xce",
+      "name": "wouca",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnog2kfx",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnog4r81",
+      "name": "琴宮いおり",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnog3ule",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogdc3f",
+      "name": "小鈴りあん",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnogdvww",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogjecj",
+      "name": "成海ミャオ",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnogiw6g",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogme9f",
+      "name": "雪白キャル",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnoglvfs",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogn64y",
+      "name": "天吹サン",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnogmuj2",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogo8ct",
+      "name": "星乃りむ",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnogo0qm",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogp07h",
+      "name": "渚沢シチ",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnnjwec5",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogporf",
+      "name": "空奏イト",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnogpdzz",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    }
+  ],
+  "creators": [
+    {
+      "id": "c_mnnjwec5",
+      "name": "がわこ",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnkew39",
+      "name": "ろるあ",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnkk09i",
+      "name": "鴇衣和禽",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnklpmz",
+      "name": "KT。",
+      "type": "modeler_3d"
+    },
+    {
+      "id": "c_mnnkndkt",
+      "name": "zouzu",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnkq3z1",
+      "name": "blessed",
+      "type": "papa"
+    },
+    {
+      "id": "c_mnnkss3i",
+      "name": "泉彩",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnksy2v",
+      "name": "八剣",
+      "type": "modeler_3d"
+    },
+    {
+      "id": "c_mnnkzzlo",
+      "name": "生川",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnl1kx7",
+      "name": "魔宮ベル",
+      "type": "papa"
+    },
+    {
+      "id": "c_mnnl8wal",
+      "name": "美和野らぐ",
+      "type": "mama"
+    },
+    {
+      "id": "c_mnnl96en",
+      "name": "ぽんぷ長🍅",
+      "type": "papa"
+    },
+    {
+      "id": "c_mnoec2j3",
+      "name": "藤ちょこ"
+    },
+    {
+      "id": "c_mnoecnyi",
+      "name": "magako"
+    },
+    {
+      "id": "c_mnoeym2o",
+      "name": "東西"
+    },
+    {
+      "id": "c_mnoeyxsr",
+      "name": "ねこれいと"
+    },
+    {
+      "id": "c_mnoez8u4",
+      "name": "雪醒"
+    },
+    {
+      "id": "c_mnoezhgx",
+      "name": "POKImari"
+    },
+    {
+      "id": "c_mnof5wat",
+      "name": "John Kafka"
+    },
+    {
+      "id": "c_mnof644x",
+      "name": "𝘲𝘵𝘰𝘯𝘢𝘨𝘪"
+    },
+    {
+      "id": "c_mnofpqga",
+      "name": "こたろう"
+    },
+    {
+      "id": "c_mnofpyyg",
+      "name": "カオミン"
+    },
+    {
+      "id": "c_mnog2kfx",
+      "name": "れおえん"
+    },
+    {
+      "id": "c_mnog3ule",
+      "name": "椎花びび"
+    },
+    {
+      "id": "c_mnogdvww",
+      "name": "としぞう"
+    },
+    {
+      "id": "c_mnogiw6g",
+      "name": "八三"
+    },
+    {
+      "id": "c_mnoglvfs",
+      "name": "朱里"
+    },
+    {
+      "id": "c_mnogmuj2",
+      "name": "イコール"
+    },
+    {
+      "id": "c_mnogo0qm",
+      "name": "さとうぽて"
+    },
+    {
+      "id": "c_mnogpdzz",
+      "name": "雨傘ゆん"
+    }
+  ],
+  "offices": [
+    {
+      "id": "o_mnnk69en",
+      "name": "RK Music"
+    },
+    {
+      "id": "o_mnog4fef",
+      "name": "ミクストガールズ"
+    }
+  ]
+}
