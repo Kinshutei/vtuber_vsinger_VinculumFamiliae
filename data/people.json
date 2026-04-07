@@ -160,6 +160,51 @@
       "papa_id": null,
       "modeler_3d_id": null,
       "costumes": []
+    },
+    {
+      "id": "t_mnogme9f",
+      "name": "雪白キャル",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnoglvfs",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogn64y",
+      "name": "天吹サン",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnogmuj2",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogo8ct",
+      "name": "星乃りむ",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnogo0qm",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogp07h",
+      "name": "渚沢シチ",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnnjwec5",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogporf",
+      "name": "空奏イト",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnogpdzz",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
     }
   ],
   "creators": [
@@ -278,6 +323,22 @@
     {
       "id": "c_mnogiw6g",
       "name": "八三"
+    },
+    {
+      "id": "c_mnoglvfs",
+      "name": "朱里"
+    },
+    {
+      "id": "c_mnogmuj2",
+      "name": "イコール"
+    },
+    {
+      "id": "c_mnogo0qm",
+      "name": "さとうぽて"
+    },
+    {
+      "id": "c_mnogpdzz",
+      "name": "雨傘ゆん"
     }
   ],
   "offices": [
