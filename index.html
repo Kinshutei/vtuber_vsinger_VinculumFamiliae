@@ -123,7 +123,7 @@
       width: 100%;
       padding: 0 18px;
     }
-    .search-hint { font-size: 10px; color: #888; }
+    .search-hint { font-size: 13px; color: #888; }
     .search-wrap input {
       width: 100%;
       background: transparent;
@@ -361,10 +361,17 @@ function renderSearch() {
 function onSearchInput() {
   const q = (document.getElementById('searchInput')?.value || '').toLowerCase().trim()
   const dd = document.getElementById('searchDropdown')
-  const results = [
+  const all = [
     ...db.talents.map(t => ({ ...t, _kind: 'talent' })),
     ...db.creators.map(c => ({ ...c, _kind: 'creator' })),
-  ].filter(x => !q || x.name.toLowerCase().includes(q)).slice(0, 12)
+  ]
+  let results
+  if (!q) {
+    const shuffled = all.slice().sort(() => Math.random() - 0.5)
+    results = shuffled.slice(0, 3)
+  } else {
+    results = all.filter(x => x.name.toLowerCase().includes(q)).slice(0, 12)
+  }
 
   if (!results.length) { dd.classList.remove('open'); return }
   dd.innerHTML = results.map(r =>
@@ -410,6 +417,27 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeLightbox()
 })
 
+// ── ×ボタン（中心円選択解除） ─────────────────────────────────────────────────
+function addCloseButton() {
+  const before = outerEls.length
+  const el = makeOuter(1, '×', null, goHome)
+  if (!el) return
+  // 接続線を除去
+  for (let i = before; i < outerEls.length - 1; i++) outerEls[i].remove()
+  outerEls.splice(before, outerEls.length - 1 - before)
+
+  const rad = (45 - 90) * Math.PI / 180
+  const d   = 185
+  el.style.width       = '34px'
+  el.style.height      = '34px'
+  el.style.left        = (CX + d * Math.cos(rad) - 17) + 'px'
+  el.style.top         = (CY + d * Math.sin(rad) - 17) + 'px'
+  el.style.background  = 'rgba(180,180,180,0.2)'
+  el.style.borderColor = '#aaa'
+  el.querySelector('.c-name').style.fontSize = '18px'
+  el.querySelector('.c-name').style.color    = '#888'
+}
+
 // ── タレント表示 ─────────────────────────────────────────────────────────────
 function showTalent(id) {
   const t = db.talents.find(x => x.id === id)
@@ -431,15 +459,17 @@ function showTalent(id) {
     ${office ? `<span class="c-role">${esc(office.name)}</span>` : ''}
   `
 
+  addCloseButton()
+
   // パパ（左・270° = index 6）
   const papa = db.creators.find(c => c.id === t.papa_id)
   const papaEl = makeOuter(6, papa ? papa.name : '—', 'パパ', papa ? () => showCreator(papa.id) : null)
-  if (papaEl) papaEl.style.borderColor = '#afeeee'
+  if (papaEl) { papaEl.style.borderColor = '#afeeee'; papaEl.style.background = 'rgba(175,238,238,0.13)' }
 
   // ママ（右・90° = index 2）
   const mama = db.creators.find(c => c.id === t.mama_id)
   const mamaEl = makeOuter(2, mama ? mama.name : '—', 'ママ', mama ? () => showCreator(mama.id) : null)
-  if (mamaEl) mamaEl.style.borderColor = '#EEAFee'
+  if (mamaEl) { mamaEl.style.borderColor = '#EEAFee'; mamaEl.style.background = 'rgba(238,175,238,0.13)' }
 }
 
 // ── クリエイター表示 ──────────────────────────────────────────────────────────
@@ -459,6 +489,8 @@ function showCreator(id) {
     <span class="c-name">${esc(c.name)}</span>
     ${roles.length ? `<span class="c-role">${roles.join(' / ')}</span>` : ''}
   `
+
+  addCloseButton()
 
   // 担当タレント
   const children = db.talents.filter(t =>
