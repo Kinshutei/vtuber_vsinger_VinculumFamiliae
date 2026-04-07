@@ -43,6 +43,15 @@
       "papa_id": "c_mnnl96en",
       "modeler_3d_id": "c_mnnl96en",
       "costumes": []
+    },
+    {
+      "id": "t_mnoeby8a",
+      "name": "LEWNE",
+      "office_id": "o_mnnk69en",
+      "mama_id": null,
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
     }
   ],
   "creators": [
@@ -105,6 +114,14 @@
       "id": "c_mnnl96en",
       "name": "ぽんぷ長🍅",
       "type": "papa"
+    },
+    {
+      "id": "c_mnoec2j3",
+      "name": "藤ちょこ"
+    },
+    {
+      "id": "c_mnoecnyi",
+      "name": "magako"
     }
   ],
   "offices": [
