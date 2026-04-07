@@ -32,8 +32,8 @@
     /* ── ステージ ── */
     #stage {
       position: relative;
-      width: 560px;
-      height: 560px;
+      width: 760px;
+      height: 760px;
     }
 
     /* ── 共通サークル ── */
@@ -50,8 +50,8 @@
 
     /* ── 中心サークル（待機状態） ── */
     #center {
-      width: 150px;
-      height: 150px;
+      width: 300px;
+      height: 300px;
       top:  50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -70,8 +70,8 @@
 
     /* ── 外周サークル ── */
     .c-outer {
-      width: 90px;
-      height: 90px;
+      width: 180px;
+      height: 180px;
       background: var(--circle-idle);
       border: 1.5px solid #b8b4aa;
       z-index: 5;
@@ -96,20 +96,20 @@
 
     /* ── テキスト ── */
     .c-name {
-      font-size: 12px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text-dark);
       line-height: 1.35;
-      padding: 0 8px;
+      padding: 0 14px;
       word-break: break-all;
     }
     #center.talent-active .c-name,
     .c-outer.talent-active .c-name { color: var(--text); }
-    #center .c-name { font-size: 13px; }
+    #center .c-name { font-size: 18px; }
     .c-role {
-      font-size: 10px;
+      font-size: 12px;
       color: #666;
-      margin-top: 4px;
+      margin-top: 6px;
     }
     #center.talent-active .c-role,
     .c-outer.talent-active .c-role { color: rgba(255,255,255,0.75); }
@@ -241,10 +241,10 @@
 
 <script>
 // ── 定数 ────────────────────────────────────────────────────────────────────
-const CX = 280, CY = 280
-const ORBIT_R   = 190
-const CENTER_R  = 75   // 中心円の半径
-const OUTER_R   = 45   // 外周円の半径
+const CX = 380, CY = 380
+const ORBIT_R   = 270
+const CENTER_R  = 150  // 中心円の半径
+const OUTER_R   = 90   // 外周円の半径
 
 // 8ポジション（度、0=上から時計回り）
 const ANGLES = [0, 45, 90, 135, 180, 225, 270, 315]
