@@ -433,11 +433,13 @@ function showTalent(id) {
 
   // パパ（左・270° = index 6）
   const papa = db.creators.find(c => c.id === t.papa_id)
-  makeOuter(6, papa ? papa.name : '—', 'パパ', papa ? () => showCreator(papa.id) : null)
+  const papaEl = makeOuter(6, papa ? papa.name : '—', 'パパ', papa ? () => showCreator(papa.id) : null)
+  if (papaEl) papaEl.style.background = '#afeeee'
 
   // ママ（右・90° = index 2）
   const mama = db.creators.find(c => c.id === t.mama_id)
-  makeOuter(2, mama ? mama.name : '—', 'ママ', mama ? () => showCreator(mama.id) : null)
+  const mamaEl = makeOuter(2, mama ? mama.name : '—', 'ママ', mama ? () => showCreator(mama.id) : null)
+  if (mamaEl) mamaEl.style.background = '#EEAFee'
 }
 
 // ── クリエイター表示 ──────────────────────────────────────────────────────────
