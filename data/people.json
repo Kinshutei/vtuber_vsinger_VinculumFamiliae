@@ -88,6 +88,42 @@
       "papa_id": null,
       "modeler_3d_id": null,
       "costumes": []
+    },
+    {
+      "id": "t_mnofoees",
+      "name": "CULUA",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnoez8u4",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnofoom8",
+      "name": "MEDA",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnoezhgx",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnofq9tv",
+      "name": "MEMESIA",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnofpyyg",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnofqob1",
+      "name": "Cil",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnofpqga",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
     }
   ],
   "creators": [
@@ -182,6 +218,14 @@
     {
       "id": "c_mnof644x",
       "name": "𝘲𝘵𝘰𝘯𝘢𝘨𝘪"
+    },
+    {
+      "id": "c_mnofpqga",
+      "name": "こたろう"
+    },
+    {
+      "id": "c_mnofpyyg",
+      "name": "カオミン"
     }
   ],
   "offices": [
