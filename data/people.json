@@ -124,6 +124,24 @@
       "papa_id": null,
       "modeler_3d_id": null,
       "costumes": []
+    },
+    {
+      "id": "t_mnog2xce",
+      "name": "wouca",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnog2kfx",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnog4r81",
+      "name": "琴宮いおり",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnog3ule",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
     }
   ],
   "creators": [
@@ -226,12 +244,24 @@
     {
       "id": "c_mnofpyyg",
       "name": "カオミン"
+    },
+    {
+      "id": "c_mnog2kfx",
+      "name": "れおえん"
+    },
+    {
+      "id": "c_mnog3ule",
+      "name": "椎花びび"
     }
   ],
   "offices": [
     {
       "id": "o_mnnk69en",
       "name": "RK Music"
+    },
+    {
+      "id": "o_mnog4fef",
+      "name": "ミクストガールズ"
     }
   ]
 }
