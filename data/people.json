@@ -48,7 +48,16 @@
       "id": "t_mnoeby8a",
       "name": "LEWNE",
       "office_id": "o_mnnk69en",
-      "mama_id": "c_mnnkew39",
+      "mama_id": "c_mnoec2j3",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnoevtov",
+      "name": "羽緒",
+      "office_id": "o_mnnk69en",
+      "mama_id": "c_mnoecnyi",
       "papa_id": null,
       "modeler_3d_id": null,
       "costumes": []
@@ -122,6 +131,22 @@
     {
       "id": "c_mnoecnyi",
       "name": "magako"
+    },
+    {
+      "id": "c_mnoeym2o",
+      "name": "東西"
+    },
+    {
+      "id": "c_mnoeyxsr",
+      "name": "ねこれいと"
+    },
+    {
+      "id": "c_mnoez8u4",
+      "name": "雪醒"
+    },
+    {
+      "id": "c_mnoezhgx",
+      "name": "POKImari"
     }
   ],
   "offices": [
