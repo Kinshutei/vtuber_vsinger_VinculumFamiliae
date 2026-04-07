@@ -142,6 +142,24 @@
       "papa_id": null,
       "modeler_3d_id": null,
       "costumes": []
+    },
+    {
+      "id": "t_mnogdc3f",
+      "name": "小鈴りあん",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnogdvww",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
+    },
+    {
+      "id": "t_mnogjecj",
+      "name": "成海ミャオ",
+      "office_id": "o_mnog4fef",
+      "mama_id": "c_mnogiw6g",
+      "papa_id": null,
+      "modeler_3d_id": null,
+      "costumes": []
     }
   ],
   "creators": [
@@ -252,6 +270,14 @@
     {
       "id": "c_mnog3ule",
       "name": "椎花びび"
+    },
+    {
+      "id": "c_mnogdvww",
+      "name": "としぞう"
+    },
+    {
+      "id": "c_mnogiw6g",
+      "name": "八三"
     }
   ],
   "offices": [
